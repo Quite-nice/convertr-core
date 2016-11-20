@@ -4,7 +4,7 @@
   "description": "This is the server backend for convertr",
   "main": "./src/server.js",
   "scripts": {
-    "start": "nodemon ./src/server.js",
+    "start": "nodemon ./src/server.js --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,7 +19,15 @@
   "homepage": "https://github.com/Quite-nice/convertr-core#readme",
   "devDependencies": {
     "babel-cli": "^6.18.0",
+    "babel-polyfill": "^6.16.0",
     "babel-preset-latest": "^6.16.0",
     "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "graphql": "^0.7.2",
+    "graphql-server-express": "^0.4.3",
+    "graphql-tools": "^0.8.1"
   }
 }
