@@ -10,8 +10,6 @@ import schema from './api/schema'
 
 const PORT = 3000, app = express()
 
-console.log(schema)
-
 app.use('/graphql', bodyParser.json(), graphqlExpress({schema}))
 app.use('/graphiql', graphiqlExpress({
     endpointURL: '/graphql'
