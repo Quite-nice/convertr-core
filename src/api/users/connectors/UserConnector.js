@@ -16,4 +16,8 @@ export default class UserConnector {
     followed_by(handler) {
         return mockUserList([2, 8])
     }
+    
+    getCreator(ingredient) {
+        return mockUser()
+    }
 }

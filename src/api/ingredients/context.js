@@ -2,9 +2,9 @@
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
-import { merge } from 'lodash'
+import Ingredient from './model/Ingredient'
+import IngredientConnector from './connectors/IngredientConnector'
 
-import UserContext from './users/context'
-import IngredientContext from './ingredients/context'
-
-export default merge(UserContext, IngredientContext)
+export default {
+    Ingredient: new Ingredient({connector: new IngredientConnector()})
+}

@@ -14,7 +14,11 @@ casual.define('userlist', (range) => {
 })
 
 export const mockUser = (handler) => {
+    if (!handler){
+        const name = casual.first_name
+        return {handler: `@${name}`, name}
+    }
     return {handler, name: handler.substr(1)}
 }
 
-export const mockUserList = (range) => casual.userlist(range)
+export const mockUserList = casual.userlist

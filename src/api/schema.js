@@ -7,7 +7,8 @@ import { merge } from 'lodash'
 import { makeExecutableSchema } from 'graphql-tools';
 
 const rootDefs = `
-    type Query {        
+    type Query {
+        ingredient(name: String!): Ingredient
         user(handler: String!): User
     }
     
@@ -20,13 +21,17 @@ const rootResolvers = {
     Query: {
         user(_, args, context) {
             return context.User.get(args.handler)
+        },
+        ingredient(_, args, context) {
+            return context.Ingredient.get(args.name)
         }
     }
 }
 
-import {users, resolvers} from './users/schema'
+import {userSchema, userResolvers} from './users/schema'
+import {ingredientSchema, ingredientResolvers} from './ingredients/schema'
 
 export default makeExecutableSchema({
-    typeDefs: [rootDefs, users],
-    resolvers: merge(rootResolvers, resolvers)
+    typeDefs: [rootDefs, userSchema, ingredientSchema],
+    resolvers: merge(rootResolvers, userResolvers, ingredientResolvers)
 })

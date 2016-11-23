@@ -20,4 +20,8 @@ export default class User extends ConnectedClass {
     followed_by(handler) {
         return this.connector.followed_by(handler)
     }
+
+    getCreator(ingredient) {
+        return this.connector.getCreator(ingredient)
+    }
 }
