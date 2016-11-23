@@ -6,6 +6,4 @@ import { merge } from 'lodash'
 
 import UserContext from './users/context'
 
-console.log(UserContext)
-
 export default merge(UserContext)

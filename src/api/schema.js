@@ -7,12 +7,7 @@ import { merge } from 'lodash'
 import { makeExecutableSchema } from 'graphql-tools';
 
 const rootDefs = `
-    type Test {
-        testString: String
-    }
-    
-    type Query {
-        test: Test
+    type Query {        
         user(handler: String!): User
     }
     
@@ -23,11 +18,7 @@ const rootDefs = `
 
 const rootResolvers = {
     Query: {
-        test() {
-            return {testString: 'Hello, World!'}
-        },
         user(_, args, context) {
-            console.log(context)
             return context.User.get(args.handler)
         }
     }
