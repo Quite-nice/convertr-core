@@ -5,6 +5,7 @@
 export const users = `
     type User {
         name: String
+        handler: String
         follows: [User]
         followed_by: [User]
     }
@@ -12,12 +13,12 @@ export const users = `
 
 export const resolvers = {
     User: {
-        follows() {
-            return [{name: 'kymer'}, {name: 'damiaan'}]
+        follows(user, _, context) {
+            return context.User.follows(user.handler)
         },
 
-        followed_by() {
-            return [{name: 'Kymer'}, {name: 'Damiaan'}]
+        followed_by(user, _, context) {
+            return context.User.followed_by(user.handler)
         }
     }
 }

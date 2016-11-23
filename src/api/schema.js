@@ -13,7 +13,7 @@ const rootDefs = `
     
     type Query {
         test: Test
-        user: User
+        user(handler: String!): User
     }
     
     schema {
@@ -26,8 +26,9 @@ const rootResolvers = {
         test() {
             return {testString: 'Hello, World!'}
         },
-        user() {
-            return {name: 'jeroen'}
+        user(_, args, context) {
+            console.log(context)
+            return context.User.get(args.handler)
         }
     }
 }
