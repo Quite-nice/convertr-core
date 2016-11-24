@@ -5,7 +5,7 @@
 import ConnectedClass from '../../ConnectedClass'
 
 export default class User extends ConnectedClass {
-    constructor({connector}) {
+    constructor(connector) {
         super(connector)
     }
     
